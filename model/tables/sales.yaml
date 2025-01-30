@@ -31,7 +31,6 @@ tables:
         type: number
         sql: product_key
 
-      
       - name: order_quantity
         type: number
         sql: order_quantity
@@ -52,9 +51,9 @@ tables:
         type: string
         sql: country
 
-      - name: product_price
-        type: number
-        sql: "products.product_price"
+      # - name: product_price
+      #   type: number
+      #   sql: "products.product_price"
 
     measures:
       - name: total_orders
@@ -69,12 +68,7 @@ tables:
         sql: "SUM(order_quatity) / Cast(COUNT(DISTINCT order_number) as Double)"
         type: number
 
-      - name: total_revenue
-        sql: "order_quantity * product_price"
-        type: sum
+      # - name: total_revenue
+      #   sql: "SUM(order_quantity * product_price)"
+      #   type: number
       
-      # - name: total_profit
-      #   sql: "order_quantity * (product_price - product_cost)"
-      #   type: sum
-    
-
