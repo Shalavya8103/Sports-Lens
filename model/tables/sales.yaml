@@ -52,6 +52,26 @@ tables:
         type: string
         sql: country
 
+      - name: product_price
+        type: number
+        sql: "from product.product_price"
+      
+      -name: product_name
+        type: string
+        sql: "from product.product_name"
+      
+      - name: product_category
+        type: string
+        sql: "from product.product_category"
+      
+      -name: product_subcategory
+        type: string
+        sql: "from product.product_subcategory"
+      
+      - name: product_cost
+        type: number
+        sql: "from product.product_cost"
+
 
     measures:
       - name: total_orders
@@ -63,9 +83,16 @@ tables:
         type: sum
       
       - name: average_quantity_per_order
-        sql: "SUM(order_quatity) / COUNT(DISTINCT order_number)"
+        sql: "SUM(order_quatity) / Cast(COUNT(DISTINCT order_number) as Double)"
         type: number
 
+      - name: total_revenue
+        sql: "SUM(order_quantity * product_price)"
+        type: sum
+      
+      -name: total_profit
+        sql: "SUM(order_quantity * (product_price - product_cost))"
+        type: sum
 
     
 
