@@ -54,23 +54,23 @@ tables:
 
       - name: product_price
         type: number
-        sql: "from product.product_price"
+        sql: "select product_price from products where product_key = {TABLE.product_key}"
       
       -name: product_name
         type: string
-        sql: "from product.product_name"
+        sql: "select product_name from products where product_key = {TABLE.product_key}"
       
       - name: product_category
         type: string
-        sql: "from product.product_category"
+        sql: "select product_category from products where product_key = {TABLE.product_key}"
       
       - name: product_subcategory
         type: string
-        sql: "from product.product_subcategory"
+        sql: "select product_subcategory from products where product_key = {TABLE.product_key}"
       
       - name: product_cost
         type: number
-        sql: "from product.product_cost"
+        sql: "select product_cost from products where product_key = {TABLE.product_key}"
 
 
     measures:
