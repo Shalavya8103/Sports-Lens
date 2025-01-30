@@ -54,7 +54,7 @@ tables:
 
       - name: product_price
         type: number
-        sql: "{products.sql.product_price}"
+        sql: "products.product_price"
 
     measures:
       - name: total_orders
