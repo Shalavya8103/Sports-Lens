@@ -56,7 +56,7 @@ tables:
         type: number
         sql: "select product_price from products where product_key = {TABLE.product_key}"
       
-      -name: product_name
+      - name: product_name
         type: string
         sql: "select product_name from products where product_key = {TABLE.product_key}"
       
