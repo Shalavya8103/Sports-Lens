@@ -1,0 +1,104 @@
+tables:
+  - name: product
+    sql: {{ load_sql('products') }}
+    public: true
+
+    joins:
+      - name: returns
+        relationship: one_to_many
+        sql: "{TABLE.product_key} = {returns.product_key}"
+    
+    dimensions:
+      - name: product_key
+        type: number
+        sql: product_key
+        primary_key: true
+        public: true
+
+      - name: product_sku
+        type: string
+        sql: product_sku
+        
+      - name: product_name
+        type: string
+        sql: product_name
+
+      - name: model_name
+        type: string
+        sql: model_name
+
+      - name: product_subcategory_key
+        type: number
+        sql: product_subcategory_key
+
+      - name: product_subcategory_name
+        type: string
+        sql: product_subcategory_name
+
+      - name: product_category_key
+        type: number
+        sql: product_category_key
+
+      - name: product_category_name
+        type: string
+        sql: product_category_name
+      
+      - name: product_description
+        type: string
+        sql: product_description
+    
+      - name: product_color
+        type: string
+        sql: product_color
+
+      - name: product_size
+        type: string
+        sql: product_size
+
+      - name: product_style
+        type: string
+        sql: product_style
+
+      - name: product_cost
+        type: number
+        sql: product_cost
+
+      - name: product_price
+        type: number
+        sql: product_price
+
+  
+    measures:
+      - name: total_product
+        sql: "{TABLE.product_key}"
+        type: count_distinct
+      
+      - name: average_product_price
+        sql: "{TABLE.product_price}"
+        type: avg
+      
+      - name: average_product_cost
+        sql: "{TABLE.product_cost}"
+        type: avg
+
+      - name: total_inventory_cost
+        sql: "{TABLE.product_cost}"
+        type: sum
+      
+      - name: total_inventory_price
+        sql: "{TABLE.product_price}"
+        type: sum
+      
+      - name: avg_profit_margin
+        sql: "({TABLE.product_price} - {TABLE.product_cost})}"
+        type: avg
+      
+      - name: most_profitable_product
+        sql: "({TABLE.product_price} - {TABLE.product_cost})"
+        type: max
+      
+      - name: least_profitable_product
+        sql: "({TABLE.product_price} - {TABLE.product_cost})"
+        type: min
+      
+  

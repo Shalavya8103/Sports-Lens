@@ -1,0 +1,63 @@
+tables:
+  - name: customers
+    sql: {{load_sql('customers')}}
+    description: Customer information
+    public: true
+
+    dimensions:
+      - name: customer_key
+        type: number
+        sql: customer_key
+        primary_key: true
+        public: true 
+
+      - name: customer_name 
+        type: string
+        sql: customer_name
+
+      - name: birth_date 
+        type: time
+        sql: birth_date
+
+      - name: marital_status 
+        type: string
+        sql: marital_status
+
+      - name: gender 
+        type: string
+        sql: gender
+
+      - name: annual_income 
+        type: number
+        sql: annual_575income
+      
+      - name: education_level 
+        type: string
+        sql: education_level
+
+      - name: occupation 
+        type: string
+        sql: occupation
+
+      - name: home_owner 
+        type: string
+        sql: home_owner
+
+    measures:
+      - name: total_number_of_customers
+        sql: "{TABLE.customer_key}"
+        type: count_distinct
+      
+      - name: avg_age
+        sql: "AVG(DATE_PART('year', CURRENT_DATE) - DATE_PART('year', birth_date))"
+        type: number
+      
+      - name: average_annual_income
+        sql: "{TABLE.annual_income}"
+        type: avg 
+      
+      - name: total_home_owners
+        sql: home_owner
+        type: count_distinct
+      
+
