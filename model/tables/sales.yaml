@@ -4,7 +4,7 @@ tables:
     public: true
 
     joins:
-      - name: product
+      - name: products
         relationship: many_to_one
         sql: "{TABLE.product_key} = {products.product_key}"
 
