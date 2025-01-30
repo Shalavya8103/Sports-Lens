@@ -90,7 +90,7 @@ tables:
         sql: "SUM(order_quantity * product_price)"
         type: sum
       
-      -name: total_profit
+      - name: total_profit
         sql: "SUM(order_quantity * (product_price - product_cost))"
         type: sum
     
