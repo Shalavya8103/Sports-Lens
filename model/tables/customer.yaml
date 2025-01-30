@@ -3,6 +3,11 @@ tables:
     sql: {{load_sql('customers')}}
     public: true
 
+    joins:
+      - name: sales
+        relationship: one_to_many
+        sql: "{TABLE.customer_key} = {sales.customer_key}"
+
     dimensions:
       - name: customer_key
         type: number
