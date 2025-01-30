@@ -64,7 +64,7 @@ tables:
         type: string
         sql: "from product.product_category"
       
-      -name: product_subcategory
+      - name: product_subcategory
         type: string
         sql: "from product.product_subcategory"
       
@@ -93,6 +93,5 @@ tables:
       -name: total_profit
         sql: "SUM(order_quantity * (product_price - product_cost))"
         type: sum
-
     
 
