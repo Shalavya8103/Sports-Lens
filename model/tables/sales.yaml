@@ -54,24 +54,7 @@ tables:
 
       - name: product_price
         type: number
-        sql: "{products.product_key}"
-      
-      - name: product_name
-        type: string
-        sql: "{products.product_key}"
-      
-      - name: product_category
-        type: string
-        sql: "{products.product_key}"
-      
-      - name: product_subcategory
-        type: string
-        sql: "{products.product_key}"
-      
-      - name: product_cost
-        type: number
-        sql: "{products.product_key}"
-
+        sql: "{products.sql.product_price}"
 
     measures:
       - name: total_orders
@@ -90,8 +73,8 @@ tables:
         sql: "order_quantity * product_price"
         type: sum
       
-      - name: total_profit
-        sql: "order_quantity * (product_price - product_cost)"
-        type: sum
+      # - name: total_profit
+      #   sql: "order_quantity * (product_price - product_cost)"
+      #   type: sum
     
 
