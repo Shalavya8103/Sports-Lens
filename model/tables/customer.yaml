@@ -1,7 +1,6 @@
 tables:
   - name: customers
     sql: {{load_sql('customers')}}
-    description: Customer information
     public: true
 
     dimensions:
