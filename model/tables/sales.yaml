@@ -53,7 +53,7 @@ tables:
 
       - name: product_price
         type: number
-        sql: "products.product_price"
+        sql: "{products.product_price}"
 
     measures:
       - name: total_orders
@@ -65,10 +65,10 @@ tables:
         type: sum
       
       - name: average_quantity_per_order
-        sql: "SUM(order_quatity) / Cast(COUNT(DISTINCT order_number) as Double)"
+        sql: "SUM(order_quantity) / Cast(COUNT(DISTINCT order_number) as Double)"
         type: number
 
       - name: total_revenue
-        sql: "SUM(order_quantity * product_price)"
+        sql: "SUM({order_quantity} * {product_price})"
         type: number
       

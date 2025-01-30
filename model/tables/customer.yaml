@@ -51,11 +51,7 @@ tables:
       - name: total_number_of_customers
         sql: "{TABLE.customer_key}"
         type: count_distinct
-      
-      - name: avg_age
-        sql: "AVG(DATE_PART('year', CURRENT_DATE) - DATE_PART('year', birth_date))"
-        type: number
-      
+        
       - name: average_annual_income
         sql: "{TABLE.annual_income}"
         type: avg 
