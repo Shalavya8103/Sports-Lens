@@ -4,7 +4,7 @@ layer: user # DataOS Layer (optional)
 type: lens # Type of Resource (mandatory)
 tags:
   - lens
-description: Sports Lens is a Lens that provides insights on sports data. # Description of the Lens (optional)
+description: Sports Lens is a Lens that provides insights on sports data. # Description of the Lens 
 lens:
   compute: runnable-default # Compute Resource that Lens should utilize (mandatory)
   # secrets: # Referred Instance-secret configuration (**mandatory for private code repository, not required for public repository)
